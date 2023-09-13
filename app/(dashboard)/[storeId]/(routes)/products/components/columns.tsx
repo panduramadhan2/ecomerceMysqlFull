@@ -1,20 +1,20 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+
 import { CellAction } from "./cell-action";
+import { Decimal } from "@prisma/client/runtime/library";
 
 export type ProductColumn = {
   id: string;
   name: string;
-  //price decimal??
-  // price: string;
   price: string;
-  size: string;
   category: string;
+  size: string;
   color: string;
+  createdAt: string;
   isFeatured: boolean;
   isArchived: boolean;
-  createdAt: string;
 };
 
 export const columns: ColumnDef<ProductColumn>[] = [
@@ -60,7 +60,7 @@ export const columns: ColumnDef<ProductColumn>[] = [
     header: "Date",
   },
   {
-    id: "action",
+    id: "actions",
     cell: ({ row }) => <CellAction data={row.original} />,
   },
 ];
